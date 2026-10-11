@@ -9,7 +9,7 @@ set:
   loki.storage.bucketNames.ruler: ruler
 
 tests:
-  - it: is backwards-compatible with `$component.service.annotations` and applies these annotations to both the loki and headless service 
+  - it: is backwards-compatible with `$component.service.annotations` and applies these annotations to both the loki and headless service
     set:
       singleBinary.service.annotations:
         component.service_annotation.inherit: "true"
@@ -29,7 +29,7 @@ tests:
           path: metadata.name
           value: "RELEASE-NAME-loki-headless"
 
-  - it: is backwards-compatible with `$component.serviceAnnotations` and applies these annotations to both the loki and headless service 
+  - it: is backwards-compatible with `$component.serviceAnnotations` and applies these annotations to both the loki and headless service
     set:
       singleBinary.serviceAnnotations:
         component.serviceAnnotations.inherit: "true"
@@ -49,7 +49,7 @@ tests:
           path: metadata.name
           value: "RELEASE-NAME-loki-headless"
 
-  - it: is backwards-compatible with `loki.serviceAnnotations` and applies these annotations to both the loki and headless service 
+  - it: is backwards-compatible with `loki.serviceAnnotations` and applies these annotations to both the loki and headless service
     set:
       loki.serviceAnnotations:
         loki.serviceAnnotations.inherit: "true"
@@ -69,7 +69,7 @@ tests:
           path: metadata.name
           value: "RELEASE-NAME-loki-headless"
 
-  - it: is backwards-compatible with `defaults.service.annotations` and applies these annotations to both the loki and headless service 
+  - it: is backwards-compatible with `defaults.service.annotations` and applies these annotations to both the loki and headless service
     set:
       defaults.service.annotations:
         defaults.service.annotations.inherit: "true"
@@ -89,7 +89,7 @@ tests:
           path: metadata.name
           value: "RELEASE-NAME-loki-headless"
 
-  - it: is backwards-compatible with `loki.serviceAnnotations`/`$component.serviceAnnotations` and merges these annotations for both the loki and headless service 
+  - it: is backwards-compatible with `loki.serviceAnnotations`/`$component.serviceAnnotations` and merges these annotations for both the loki and headless service
     set:
       loki.serviceAnnotations:
         loki.serviceAnnotations.inherit: "true"
@@ -141,7 +141,7 @@ tests:
           path: metadata.name
           value: "RELEASE-NAME-loki-headless"
 
-  - it: is backwards-compatible with `$component.serviceAnnotations`/`$component.service.annotations` and merge these annotations for both the loki and headless service 
+  - it: is backwards-compatible with `$component.serviceAnnotations`/`$component.service.annotations` and merge these annotations for both the loki and headless service
     set:
       singleBinary.serviceAnnotations:
         component.serviceAnnotations.inherit: "true"
@@ -193,7 +193,7 @@ tests:
           path: metadata.name
           value: "RELEASE-NAME-loki-headless"
 
-  - it: is backwards-compatible with `$loki.serviceAnnotations`/`defaults.service.annotations`/`$component.serviceAnnotations`/`$component.service.annotations` and merge them for the primary and headless service 
+  - it: is backwards-compatible with `$loki.serviceAnnotations`/`defaults.service.annotations`/`$component.serviceAnnotations`/`$component.service.annotations` and merge them for the primary and headless service
     set:
       loki.serviceAnnotations:
         loki.serviceAnnotations.inherit: "true"
