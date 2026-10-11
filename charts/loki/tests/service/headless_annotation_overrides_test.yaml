@@ -598,8 +598,6 @@ tests:
         documentSelector:
           path: metadata.name
           value: "RELEASE-NAME-loki"
-      ###############################
-
       #asserts[10]
       - equal:
           path: metadata.annotations["component.serviceAnnotations.inherit"]
@@ -673,7 +671,6 @@ tests:
         documentSelector:
           path: metadata.name
           value: "RELEASE-NAME-loki-headless"
-
       #asserts[19]
       - equal:
           path: metadata.annotations["defaults.service.annotations.inherit"]
