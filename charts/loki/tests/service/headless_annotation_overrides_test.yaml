@@ -380,12 +380,12 @@ tests:
           path: metadata.name
           value: "RELEASE-NAME-loki-headless"
 
-  - it: should merge annotations from `$component.serviceAnnotations` with `$component.headless.annotations` when provided
+  - it: should merge annotations from `$component.serviceAnnotations` with `$component.headlessService.annotations` when provided
     set:
       singleBinary.serviceAnnotations:
         component.serviceAnnotations.inherit: "true"
         component.serviceAnnotations.merge: "true"
-      singleBinary.headless.annotations:
+      singleBinary.headlessService.annotations:
         component.serviceAnnotations.merge: "false"
         service.headlessAnnotation.inherit: "true"
     asserts:
@@ -433,12 +433,12 @@ tests:
           path: metadata.name
           value: "RELEASE-NAME-loki-headless"
 
-  - it: should replace the annotations from `$component.service.annotations` with `$component.headless.annotations` when provided
+  - it: should replace the annotations from `$component.service.annotations` with `$component.headlessService.annotations` when provided
     set:
       singleBinary.service.annotations:
         service.primary_annotation.inherit: "true"
         service.primary_annotation.exists: "true"
-      singleBinary.headless.annotations:
+      singleBinary.headlessService.annotations:
         service.primary_annotation.exists: "false"
         service.headless_annotation.inherit: "false"
     asserts:
@@ -484,7 +484,7 @@ tests:
           value: "RELEASE-NAME-loki-headless"
 
   # The "kitchen sink"
-  - it: should merge annotations from `loki.serviceAnnotations`, `defaults.service.annotations`, `$component.serviceAnnotations` and merge or replace `$component.service.annotations` with `$component.headless.annotations` when provided
+  - it: should merge annotations from `loki.serviceAnnotations`, `defaults.service.annotations`, `$component.serviceAnnotations` and merge or replace `$component.service.annotations` with `$component.headlessService.annotations` when provided
     set:
       loki.serviceAnnotations:
         loki.serviceAnnotations.merge/defaultServiceAnnotation: "true"
@@ -516,7 +516,7 @@ tests:
         defaults.service.annotations.merge/serviceAnnotations: "false"
         component.serviceAnnotations.merge/serviceAnnotation: "false"
         service.primary_annotation.inherit: "true"
-      singleBinary.headless.annotations:
+      singleBinary.headlessService.annotations:
         loki.serviceAnnotations.merge/headlessAnnotations: "false"
         loki.serviceAnnotations.merge/allLevels: "4"
         defaults.service.annotations.merge/allLevels: "3"

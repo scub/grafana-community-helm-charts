@@ -1995,10 +1995,13 @@ singleBinary:
     # @schema type:[string, null]
     # -- Pod Disruption Budget unhealthyPodEvictionPolicy
     unhealthyPodEvictionPolicy: null
-  headless:
+  headlessService:
     # @schema additionalProperties:{"type":"string"}
-    # -- Annotation overrides for headless Monolithic Service
+    # -- Additional annotations for headless single binary Service
     annotations: {}
+    # @schema additionalProperties:{"type":"string"}
+    # -- Additional labels for single binary Service
+    labels: {}
   service:
     # @schema additionalProperties:{"type":"string"}
     # -- Annotations for single binary Service
@@ -2233,10 +2236,13 @@ write:
   # @schema additionalProperties:{"type":"string"}
   # -- Additional selector labels for each `write` pod
   selectorLabels: {}
-  headless:
+  headlessService:
     # @schema additionalProperties:{"type":"string"}
-    # -- Annotation overrides for headless SimpleScalable write Service
+    # -- Additional annotations for headless SimpleScalable write Service
     annotations: {}
+    # @schema additionalProperties:{"type":"string"}
+    # -- Additional labels for headless SimpleScalable write Service
+    labels: {}
   service:
     # @schema additionalProperties:{"type":"string"}
     # -- Annotations for write Service
@@ -2509,10 +2515,13 @@ read:
   # @schema additionalProperties:{"type":"string"}
   # -- Additional selector labels for each `read` pod
   selectorLabels: {}
-  headless:
+  headlessService:
     # @schema additionalProperties:{"type":"string"}
-    # -- Annotation overrides for headless SimpleScalable read Service
+    # -- Additional annotations for headless SimpleScalable read Service
     annotations: {}
+    # @schema additionalProperties:{"type":"string"}
+    # -- Additional labels for headless SimpleScalable read Service
+    labels: {}
   service:
     # @schema additionalProperties:{"type":"string"}
     # -- Annotations for read Service
@@ -3062,10 +3071,13 @@ ingester:
   # -- Service type for ingester service
   # @deprecated -- This option is deprecated in favor of `ingester.service.type`
   serviceType: "ClusterIP"
-  headless:
+  headlessService:
     # @schema additionalProperties:{"type":"string"}
-    # -- Annotation overrides for headless Distributed ingester Service
+    # -- Additional annotations for headless Distributed ingester Service
     annotations: {}
+    # @schema additionalProperties:{"type":"string"}
+    # -- Additional labels for headless Distributed ingester Service
+    labels: {}
   service:
     # @schema additionalProperties:{"type":"string"}
     # -- Annotations for ingester Service
@@ -4650,10 +4662,13 @@ compactor:
   # -- Service type for compactor service
   # @deprecated -- This option is deprecated in favor of `compactor.service.type`
   serviceType: "ClusterIP"
-  headless:
+  headlessService:
     # @schema additionalProperties:{"type":"string"}
-    # -- Annotation overrides for headless Distributed compactor Service
+    # -- Additional annotations for headless Distributed compactor Service
     annotations: {}
+    # @schema additionalProperties:{"type":"string"}
+    # -- Additional labels for headless Distributed compactor Service
+    labels: {}
   service:
     # @schema additionalProperties:{"type":"string"}
     # -- Annotations for compactor Service

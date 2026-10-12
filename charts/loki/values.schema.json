@@ -2564,11 +2564,18 @@
                     "description": "Volumes to add to the compactor pods",
                     "type": "array"
                 },
-                "headless": {
+                "headlessService": {
                     "type": "object",
                     "properties": {
                         "annotations": {
-                            "description": "Annotation overrides for headless Distributed compactor Service",
+                            "description": "Additional annotations for headless Distributed compactor Service",
+                            "type": "object",
+                            "additionalProperties": {
+                                "type": "string"
+                            }
+                        },
+                        "labels": {
+                            "description": "Additional labels for headless Distributed compactor Service",
                             "type": "object",
                             "additionalProperties": {
                                 "type": "string"
@@ -5093,11 +5100,18 @@
                     "description": "Volumes to add to the ingester pods",
                     "type": "array"
                 },
-                "headless": {
+                "headlessService": {
                     "type": "object",
                     "properties": {
                         "annotations": {
-                            "description": "Annotation overrides for headless Distributed ingester Service",
+                            "description": "Additional annotations for headless Distributed ingester Service",
+                            "type": "object",
+                            "additionalProperties": {
+                                "type": "string"
+                            }
+                        },
+                        "labels": {
+                            "description": "Additional labels for headless Distributed ingester Service",
                             "type": "object",
                             "additionalProperties": {
                                 "type": "string"
@@ -9282,11 +9296,18 @@
                     "description": "Override for the read fullname. By default, this is generated using the fullname template with \"-backend\"",
                     "type": "string"
                 },
-                "headless": {
+                "headlessService": {
                     "type": "object",
                     "properties": {
                         "annotations": {
-                            "description": "Annotation overrides for headless SimpleScalable read Service",
+                            "description": "Additional annotations for headless SimpleScalable read Service",
+                            "type": "object",
+                            "additionalProperties": {
+                                "type": "string"
+                            }
+                        },
+                        "labels": {
+                            "description": "Additional labels for headless SimpleScalable read Service",
                             "type": "object",
                             "additionalProperties": {
                                 "type": "string"
@@ -10708,11 +10729,18 @@
                     "description": "Volumes to add to the single binary pods",
                     "type": "array"
                 },
-                "headless": {
+                "headlessService": {
                     "type": "object",
                     "properties": {
                         "annotations": {
-                            "description": "Annotation overrides for headless Monolithic Service",
+                            "description": "Additional annotations for headless single binary Service",
+                            "type": "object",
+                            "additionalProperties": {
+                                "type": "string"
+                            }
+                        },
+                        "labels": {
+                            "description": "Additional labels for single binary Service",
                             "type": "object",
                             "additionalProperties": {
                                 "type": "string"
@@ -11497,11 +11525,18 @@
                     "description": "Override for the write fullname. By default, this is generated using the fullname template with \"-backend\"",
                     "type": "string"
                 },
-                "headless": {
+                "headlessService": {
                     "type": "object",
                     "properties": {
                         "annotations": {
-                            "description": "Annotation overrides for headless SimpleScalable write Service",
+                            "description": "Additional annotations for headless SimpleScalable write Service",
+                            "type": "object",
+                            "additionalProperties": {
+                                "type": "string"
+                            }
+                        },
+                        "labels": {
+                            "description": "Additional labels for headless SimpleScalable write Service",
                             "type": "object",
                             "additionalProperties": {
                                 "type": "string"
