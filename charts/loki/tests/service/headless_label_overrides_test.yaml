@@ -292,12 +292,12 @@ tests:
           path: metadata.name
           value: "RELEASE-NAME-loki-headless"
 
-  - it: should merge labels from `$component.serviceLabels` with `$component.headlessService.labels` when provided
+  - it: should merge labels from `$component.serviceLabels` with `$component.service.headlessService.labels` when provided
     set:
       singleBinary.serviceLabels:
         component.serviceLabels.inherit: "true"
         component.serviceLabels.merge: "true"
-      singleBinary.headlessService.labels:
+      singleBinary.service.headlessService.labels:
         component.serviceLabels.merge: "false"
         service.headlessServiceLabels.inherit: "true"
     asserts:
@@ -345,12 +345,12 @@ tests:
           path: metadata.name
           value: "RELEASE-NAME-loki-headless"
 
-  - it: should replace the labels from `$component.service.labels` with `$component.headlessService.labels` when provided
+  - it: should replace the labels from `$component.service.labels` with `$component.service.headlessService.labels` when provided
     set:
       singleBinary.service.labels:
         service.primary_labels.inherit: "true"
         service.primary_labels.exists: "true"
-      singleBinary.headlessService.labels:
+      singleBinary.service.headlessService.labels:
         service.primary_labels.exists: "false"
         service.headlessService_labels.inherit: "false"
     asserts:
@@ -396,7 +396,7 @@ tests:
           value: "RELEASE-NAME-loki-headless"
 
   # The "kitchen sink"
-  - it: should merge labels from `defaults.service.labels`, `$component.serviceLabels` and merge or replace `$component.service.labels` with `$component.headlessService.labels` when provided
+  - it: should merge labels from `defaults.service.labels`, `$component.serviceLabels` and merge or replace `$component.service.labels` with `$component.service.headlessService.labels` when provided
     set:
       defaults.service.labels:
         defaults.service.labels.inherit: "true"
@@ -415,7 +415,7 @@ tests:
         defaults.service.labels.merge/serviceLabels: "false"
         component.serviceLabels.merge/serviceAnnotation: "false"
         service.primary_label.inherit: "true"
-      singleBinary.headlessService.labels:
+      singleBinary.service.headlessService.labels:
         defaults.service.labels.merge/allLevels: "3"
         defaults.service.labels.merge/headlessAnnotations: "false"
         component.serviceLabels.merge/headlessAnnotation: "false"

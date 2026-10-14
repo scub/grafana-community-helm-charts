@@ -97,7 +97,7 @@ metadata:
     app.kubernetes.io/component: {{ $target | quote }}
     prometheus.io/service-monitor: "false"
     variant: headless
-    {{- $headlessLabels := ($component.headlessService | default dict).labels | default dict }}
+    {{- $headlessLabels := ($component.service.headlessService | default dict).labels | default dict }}
     {{- if empty $headlessLabels }}
     {{- with (mergeOverwrite (dict) .Values.defaults.service.labels ($component.serviceLabels | default dict) $component.service.labels) }}
     {{- toYaml . | nindent 4 }}
@@ -108,7 +108,7 @@ metadata:
     {{- end }}
     {{- end }}
   annotations:
-    {{- $headlessAnnotations := ($component.headlessService | default dict).annotations | default dict }}
+    {{- $headlessAnnotations := ($component.service.headlessService | default dict).annotations | default dict }}
     {{- if empty $headlessAnnotations}}
     {{- with (mergeOverwrite (dict) .Values.loki.serviceAnnotations .Values.defaults.service.annotations ($component.serviceAnnotations | default dict) $component.service.annotations) }}
     {{- toYaml . | nindent 4 }}

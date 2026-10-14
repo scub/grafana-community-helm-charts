@@ -2564,25 +2564,6 @@
                     "description": "Volumes to add to the compactor pods",
                     "type": "array"
                 },
-                "headlessService": {
-                    "type": "object",
-                    "properties": {
-                        "annotations": {
-                            "description": "Additional annotations for headless Distributed compactor Service",
-                            "type": "object",
-                            "additionalProperties": {
-                                "type": "string"
-                            }
-                        },
-                        "labels": {
-                            "description": "Additional labels for headless Distributed compactor Service",
-                            "type": "object",
-                            "additionalProperties": {
-                                "type": "string"
-                            }
-                        }
-                    }
-                },
                 "hostAliases": {
                     "description": "hostAliases to add",
                     "type": "array"
@@ -2836,6 +2817,25 @@
                                 "grpc": {
                                     "description": "Set the optional grpc service protocol. Ex: \"grpc\", \"http2\" or \"https\"",
                                     "type": "string"
+                                }
+                            }
+                        },
+                        "headlessService": {
+                            "type": "object",
+                            "properties": {
+                                "annotations": {
+                                    "description": "Additional annotations for headless Distributed compactor Service",
+                                    "type": "object",
+                                    "additionalProperties": {
+                                        "type": "string"
+                                    }
+                                },
+                                "labels": {
+                                    "description": "Additional labels for headless Distributed compactor Service",
+                                    "type": "object",
+                                    "additionalProperties": {
+                                        "type": "string"
+                                    }
                                 }
                             }
                         },
@@ -5100,25 +5100,6 @@
                     "description": "Volumes to add to the ingester pods",
                     "type": "array"
                 },
-                "headlessService": {
-                    "type": "object",
-                    "properties": {
-                        "annotations": {
-                            "description": "Additional annotations for headless Distributed ingester Service",
-                            "type": "object",
-                            "additionalProperties": {
-                                "type": "string"
-                            }
-                        },
-                        "labels": {
-                            "description": "Additional labels for headless Distributed ingester Service",
-                            "type": "object",
-                            "additionalProperties": {
-                                "type": "string"
-                            }
-                        }
-                    }
-                },
                 "hostAliases": {
                     "description": "hostAliases to add",
                     "type": "array"
@@ -5417,6 +5398,25 @@
                                 "grpc": {
                                     "description": "Set the optional grpc service protocol. Ex: \"grpc\", \"http2\" or \"https\"",
                                     "type": "string"
+                                }
+                            }
+                        },
+                        "headlessService": {
+                            "type": "object",
+                            "properties": {
+                                "annotations": {
+                                    "description": "Additional annotations for headless Distributed ingester Service",
+                                    "type": "object",
+                                    "additionalProperties": {
+                                        "type": "string"
+                                    }
+                                },
+                                "labels": {
+                                    "description": "Additional labels for headless Distributed ingester Service",
+                                    "type": "object",
+                                    "additionalProperties": {
+                                        "type": "string"
+                                    }
                                 }
                             }
                         },
@@ -9296,25 +9296,6 @@
                     "description": "Override for the read fullname. By default, this is generated using the fullname template with \"-backend\"",
                     "type": "string"
                 },
-                "headlessService": {
-                    "type": "object",
-                    "properties": {
-                        "annotations": {
-                            "description": "Additional annotations for headless SimpleScalable read Service",
-                            "type": "object",
-                            "additionalProperties": {
-                                "type": "string"
-                            }
-                        },
-                        "labels": {
-                            "description": "Additional labels for headless SimpleScalable read Service",
-                            "type": "object",
-                            "additionalProperties": {
-                                "type": "string"
-                            }
-                        }
-                    }
-                },
                 "hostUsers": {
                     "description": "Use the host's user namespace in the read pods.",
                     "type": [
@@ -9542,6 +9523,25 @@
                                 "grpc": {
                                     "description": "Set the optional grpc service protocol. Ex: \"grpc\", \"http2\" or \"https\"",
                                     "type": "string"
+                                }
+                            }
+                        },
+                        "headlessService": {
+                            "type": "object",
+                            "properties": {
+                                "annotations": {
+                                    "description": "Additional annotations for headless SimpleScalable read Service",
+                                    "type": "object",
+                                    "additionalProperties": {
+                                        "type": "string"
+                                    }
+                                },
+                                "labels": {
+                                    "description": "Additional labels for headless SimpleScalable read Service",
+                                    "type": "object",
+                                    "additionalProperties": {
+                                        "type": "string"
+                                    }
                                 }
                             }
                         },
@@ -10729,25 +10729,6 @@
                     "description": "Volumes to add to the single binary pods",
                     "type": "array"
                 },
-                "headlessService": {
-                    "type": "object",
-                    "properties": {
-                        "annotations": {
-                            "description": "Additional annotations for headless single binary Service",
-                            "type": "object",
-                            "additionalProperties": {
-                                "type": "string"
-                            }
-                        },
-                        "labels": {
-                            "description": "Additional labels for single binary Service",
-                            "type": "object",
-                            "additionalProperties": {
-                                "type": "string"
-                            }
-                        }
-                    }
-                },
                 "hostUsers": {
                     "description": "Use the host's user namespace in the single binary pods",
                     "type": [
@@ -11026,6 +11007,25 @@
                                 "grpc": {
                                     "description": "Set the optional grpc service protocol. Ex: \"grpc\", \"http2\" or \"https\"",
                                     "type": "string"
+                                }
+                            }
+                        },
+                        "headlessService": {
+                            "type": "object",
+                            "properties": {
+                                "annotations": {
+                                    "description": "Additional annotations for headless single binary Service",
+                                    "type": "object",
+                                    "additionalProperties": {
+                                        "type": "string"
+                                    }
+                                },
+                                "labels": {
+                                    "description": "Additional labels for single binary Service",
+                                    "type": "object",
+                                    "additionalProperties": {
+                                        "type": "string"
+                                    }
                                 }
                             }
                         },
@@ -11525,25 +11525,6 @@
                     "description": "Override for the write fullname. By default, this is generated using the fullname template with \"-backend\"",
                     "type": "string"
                 },
-                "headlessService": {
-                    "type": "object",
-                    "properties": {
-                        "annotations": {
-                            "description": "Additional annotations for headless SimpleScalable write Service",
-                            "type": "object",
-                            "additionalProperties": {
-                                "type": "string"
-                            }
-                        },
-                        "labels": {
-                            "description": "Additional labels for headless SimpleScalable write Service",
-                            "type": "object",
-                            "additionalProperties": {
-                                "type": "string"
-                            }
-                        }
-                    }
-                },
                 "hostUsers": {
                     "description": "Use the host's user namespace in the write pods.",
                     "type": [
@@ -11842,6 +11823,25 @@
                                 "grpc": {
                                     "description": "Set the optional grpc service protocol. Ex: \"grpc\", \"http2\" or \"https\"",
                                     "type": "string"
+                                }
+                            }
+                        },
+                        "headlessService": {
+                            "type": "object",
+                            "properties": {
+                                "annotations": {
+                                    "description": "Additional annotations for headless SimpleScalable write Service",
+                                    "type": "object",
+                                    "additionalProperties": {
+                                        "type": "string"
+                                    }
+                                },
+                                "labels": {
+                                    "description": "Additional labels for headless SimpleScalable write Service",
+                                    "type": "object",
+                                    "additionalProperties": {
+                                        "type": "string"
+                                    }
                                 }
                             }
                         },

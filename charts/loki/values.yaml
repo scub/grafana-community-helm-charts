@@ -1995,13 +1995,6 @@ singleBinary:
     # @schema type:[string, null]
     # -- Pod Disruption Budget unhealthyPodEvictionPolicy
     unhealthyPodEvictionPolicy: null
-  headlessService:
-    # @schema additionalProperties:{"type":"string"}
-    # -- Additional annotations for headless single binary Service
-    annotations: {}
-    # @schema additionalProperties:{"type":"string"}
-    # -- Additional labels for single binary Service
-    labels: {}
   service:
     # @schema additionalProperties:{"type":"string"}
     # -- Annotations for single binary Service
@@ -2028,6 +2021,13 @@ singleBinary:
     appProtocol:
     # -- Set the optional grpc service protocol. Ex: "grpc", "http2" or "https"
       grpc: ""
+    headlessService:
+      # @schema additionalProperties:{"type":"string"}
+      # -- Additional annotations for headless single binary Service
+      annotations: {}
+      # @schema additionalProperties:{"type":"string"}
+      # -- Additional labels for single binary Service
+      labels: {}
   # -- Comma-separated list of Loki modules to load for the single binary
   targetModule: "all"
   # -- Labels for single binary service
@@ -2236,13 +2236,6 @@ write:
   # @schema additionalProperties:{"type":"string"}
   # -- Additional selector labels for each `write` pod
   selectorLabels: {}
-  headlessService:
-    # @schema additionalProperties:{"type":"string"}
-    # -- Additional annotations for headless SimpleScalable write Service
-    annotations: {}
-    # @schema additionalProperties:{"type":"string"}
-    # -- Additional labels for headless SimpleScalable write Service
-    labels: {}
   service:
     # @schema additionalProperties:{"type":"string"}
     # -- Annotations for write Service
@@ -2269,6 +2262,13 @@ write:
     appProtocol:
     # -- Set the optional grpc service protocol. Ex: "grpc", "http2" or "https"
       grpc: ""
+    headlessService:
+      # @schema additionalProperties:{"type":"string"}
+      # -- Additional annotations for headless SimpleScalable write Service
+      annotations: {}
+      # @schema additionalProperties:{"type":"string"}
+      # -- Additional labels for headless SimpleScalable write Service
+      labels: {}
   # -- Additional CLI args for the write
   extraArgs: []
   # -- Environment variables to add to the write pods
@@ -2515,13 +2515,6 @@ read:
   # @schema additionalProperties:{"type":"string"}
   # -- Additional selector labels for each `read` pod
   selectorLabels: {}
-  headlessService:
-    # @schema additionalProperties:{"type":"string"}
-    # -- Additional annotations for headless SimpleScalable read Service
-    annotations: {}
-    # @schema additionalProperties:{"type":"string"}
-    # -- Additional labels for headless SimpleScalable read Service
-    labels: {}
   service:
     # @schema additionalProperties:{"type":"string"}
     # -- Annotations for read Service
@@ -2548,6 +2541,13 @@ read:
     appProtocol:
     # -- Set the optional grpc service protocol. Ex: "grpc", "http2" or "https"
       grpc: ""
+    headlessService:
+      # @schema additionalProperties:{"type":"string"}
+      # -- Additional annotations for headless SimpleScalable read Service
+      annotations: {}
+      # @schema additionalProperties:{"type":"string"}
+      # -- Additional labels for headless SimpleScalable read Service
+      labels: {}
   # -- Additional CLI args for the read
   extraArgs: []
   # @schema type:[string, array, null]
@@ -3071,13 +3071,6 @@ ingester:
   # -- Service type for ingester service
   # @deprecated -- This option is deprecated in favor of `ingester.service.type`
   serviceType: "ClusterIP"
-  headlessService:
-    # @schema additionalProperties:{"type":"string"}
-    # -- Additional annotations for headless Distributed ingester Service
-    annotations: {}
-    # @schema additionalProperties:{"type":"string"}
-    # -- Additional labels for headless Distributed ingester Service
-    labels: {}
   service:
     # @schema additionalProperties:{"type":"string"}
     # -- Annotations for ingester Service
@@ -3104,6 +3097,13 @@ ingester:
     appProtocol:
     # -- Set the optional grpc service protocol. Ex: "grpc", "http2" or "https"
       grpc: ""
+    headlessService:
+      # @schema additionalProperties:{"type":"string"}
+      # -- Additional annotations for headless Distributed ingester Service
+      annotations: {}
+      # @schema additionalProperties:{"type":"string"}
+      # -- Additional labels for headless Distributed ingester Service
+      labels: {}
   # -- Additional CLI args for the ingester
   extraArgs: []
   # -- Environment variables to add to the ingester pods
@@ -4662,13 +4662,6 @@ compactor:
   # -- Service type for compactor service
   # @deprecated -- This option is deprecated in favor of `compactor.service.type`
   serviceType: "ClusterIP"
-  headlessService:
-    # @schema additionalProperties:{"type":"string"}
-    # -- Additional annotations for headless Distributed compactor Service
-    annotations: {}
-    # @schema additionalProperties:{"type":"string"}
-    # -- Additional labels for headless Distributed compactor Service
-    labels: {}
   service:
     # @schema additionalProperties:{"type":"string"}
     # -- Annotations for compactor Service
@@ -4695,6 +4688,13 @@ compactor:
     appProtocol:
     # -- Set the optional grpc service protocol. Ex: "grpc", "http2" or "https"
       grpc: ""
+    headlessService:
+      # @schema additionalProperties:{"type":"string"}
+      # -- Additional annotations for headless Distributed compactor Service
+      annotations: {}
+      # @schema additionalProperties:{"type":"string"}
+      # -- Additional labels for headless Distributed compactor Service
+      labels: {}
   # -- Additional CLI args for the compactor
   extraArgs: []
   # -- Environment variables to add to the compactor pods
