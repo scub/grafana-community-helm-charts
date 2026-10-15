@@ -98,25 +98,13 @@ metadata:
     prometheus.io/service-monitor: "false"
     variant: headless
     {{- $headlessLabels := ($component.service.headlessService | default dict).labels | default dict }}
-    {{- if empty $headlessLabels }}
-    {{- with (mergeOverwrite (dict) .Values.defaults.service.labels ($component.serviceLabels | default dict) $component.service.labels) }}
-    {{- toYaml . | nindent 4 }}
-    {{- end }}
-    {{- else }}
     {{- with (mergeOverwrite (dict) .Values.defaults.service.labels ($component.serviceLabels | default dict) $headlessLabels) }}
     {{- toYaml . | nindent 4 }}
     {{- end }}
-    {{- end }}
   annotations:
     {{- $headlessAnnotations := ($component.service.headlessService | default dict).annotations | default dict }}
-    {{- if empty $headlessAnnotations}}
-    {{- with (mergeOverwrite (dict) .Values.loki.serviceAnnotations .Values.defaults.service.annotations ($component.serviceAnnotations | default dict) $component.service.annotations) }}
-    {{- toYaml . | nindent 4 }}
-    {{- end }}
-    {{- else }}
     {{- with (mergeOverwrite (dict) .Values.loki.serviceAnnotations .Values.defaults.service.annotations ($component.serviceAnnotations | default dict) $headlessAnnotations) }}
     {{- toYaml . | nindent 4 }}
-    {{- end }}
     {{- end }}
 spec:
   clusterIP: None

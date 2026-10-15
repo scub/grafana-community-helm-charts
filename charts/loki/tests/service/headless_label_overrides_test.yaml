@@ -9,26 +9,6 @@ set:
   loki.storage.bucketNames.ruler: ruler
 
 tests:
-  - it: is backwards-compatible with `$component.service.labels` and applies these labels to both the loki and headless service
-    set:
-      singleBinary.service.labels:
-        component.service_label.inherit: "true"
-    asserts:
-      - equal:
-          path: metadata.labels["component.service_label.inherit"]
-          value: "true"
-        template: monolithic/service.yaml
-        documentSelector:
-          path: metadata.name
-          value: "RELEASE-NAME-loki"
-      - equal:
-          path: metadata.labels["component.service_label.inherit"]
-          value: "true"
-        template: monolithic/service.yaml
-        documentSelector:
-          path: metadata.name
-          value: "RELEASE-NAME-loki-headless"
-
   - it: is backwards-compatible with `$component.serviceLabels` and applies these labels to both the loki and headless service
     set:
       singleBinary.serviceLabels:
@@ -121,172 +101,20 @@ tests:
           path: metadata.name
           value: "RELEASE-NAME-loki-headless"
 
-  - it: is backwards-compatible with `$component.serviceLabels`/`$component.service.labels` and merge these labels for both the loki and headless service
+  - it: is not backwards-compatible with `$component.service.labels` which only applies these labels to the primary loki service
     set:
-      singleBinary.serviceLabels:
-        component.serviceLabels.inherit: "true"
-        component.serviceLabels.merge: "true"
       singleBinary.service.labels:
-        component.serviceLabels.merge: "false"
-        service.labels.inherit: "false"
+        component.service_label.inherit: "true"
     asserts:
       - equal:
-          path: metadata.labels["component.serviceLabels.inherit"]
+          path: metadata.labels["component.service_label.inherit"]
           value: "true"
         template: monolithic/service.yaml
         documentSelector:
           path: metadata.name
           value: "RELEASE-NAME-loki"
-      - equal:
-          path: metadata.labels["component.serviceLabels.merge"]
-          value: "false"
-        template: monolithic/service.yaml
-        documentSelector:
-          path: metadata.name
-          value: "RELEASE-NAME-loki"
-      - equal:
-          path: metadata.labels["service.labels.inherit"]
-          value: "false"
-        template: monolithic/service.yaml
-        documentSelector:
-          path: metadata.name
-          value: "RELEASE-NAME-loki"
-      - equal:
-          path: metadata.labels["component.serviceLabels.inherit"]
-          value: "true"
-        template: monolithic/service.yaml
-        documentSelector:
-          path: metadata.name
-          value: "RELEASE-NAME-loki-headless"
-      - equal:
-          path: metadata.labels["component.serviceLabels.merge"]
-          value: "false"
-        template: monolithic/service.yaml
-        documentSelector:
-          path: metadata.name
-          value: "RELEASE-NAME-loki-headless"
-      - equal:
-          path: metadata.labels["service.labels.inherit"]
-          value: "false"
-        template: monolithic/service.yaml
-        documentSelector:
-          path: metadata.name
-          value: "RELEASE-NAME-loki-headless"
-
-  - it: is backwards-compatible with `defaults.service.labels`/`$component.serviceLabels`/`$component.service.labels` and merge them for the primary and headless service
-    set:
-      defaults.service.labels:
-        defaults.service.labels.inherit: "true"
-        defaults.service.labels.merge/componentServiceLabels: "true"
-        defaults.service.labels.merge/serviceLabels: "true"
-        defaults.service.labels.merge/allLevels: "0"
-      singleBinary.serviceLabels:
-        defaults.service.labels.merge/componentServiceLabels: "false"
-        defaults.service.labels.merge/allLevels: "1"
-        component.serviceLabels.inherit: "true"
-        component.serviceLabels.merge: "true"
-      singleBinary.service.labels:
-        defaults.service.labels.merge/serviceLabels: "false"
-        defaults.service.labels.merge/allLevels: "2"
-        component.serviceLabels.merge: "false"
-        service.labels.inherit: "true"
-    asserts:
-      # Primary
-      - equal:
-          path: metadata.labels["defaults.service.labels.inherit"]
-          value: "true"
-        template: monolithic/service.yaml
-        documentSelector:
-          path: metadata.name
-          value: "RELEASE-NAME-loki"
-      - equal:
-          path: metadata.labels["defaults.service.labels.merge/componentServiceLabels"]
-          value: "false"
-        template: monolithic/service.yaml
-        documentSelector:
-          path: metadata.name
-          value: "RELEASE-NAME-loki"
-      - equal:
-          path: metadata.labels["defaults.service.labels.merge/serviceLabels"]
-          value: "false"
-        template: monolithic/service.yaml
-        documentSelector:
-          path: metadata.name
-          value: "RELEASE-NAME-loki"
-      - equal:
-          path: metadata.labels["defaults.service.labels.merge/allLevels"]
-          value: "2"
-        template: monolithic/service.yaml
-        documentSelector:
-          path: metadata.name
-          value: "RELEASE-NAME-loki"
-      - equal:
-          path: metadata.labels["component.serviceLabels.inherit"]
-          value: "true"
-        template: monolithic/service.yaml
-        documentSelector:
-          path: metadata.name
-          value: "RELEASE-NAME-loki"
-      - equal:
-          path: metadata.labels["component.serviceLabels.merge"]
-          value: "false"
-        template: monolithic/service.yaml
-        documentSelector:
-          path: metadata.name
-          value: "RELEASE-NAME-loki"
-      - equal:
-          path: metadata.labels["service.labels.inherit"]
-          value: "true"
-        template: monolithic/service.yaml
-        documentSelector:
-          path: metadata.name
-          value: "RELEASE-NAME-loki-headless"
-      # Headless
-      - equal:
-          path: metadata.labels["defaults.service.labels.inherit"]
-          value: "true"
-        template: monolithic/service.yaml
-        documentSelector:
-          path: metadata.name
-          value: "RELEASE-NAME-loki-headless"
-      - equal:
-          path: metadata.labels["defaults.service.labels.merge/componentServiceLabels"]
-          value: "false"
-        template: monolithic/service.yaml
-        documentSelector:
-          path: metadata.name
-          value: "RELEASE-NAME-loki-headless"
-      - equal:
-          path: metadata.labels["defaults.service.labels.merge/serviceLabels"]
-          value: "false"
-        template: monolithic/service.yaml
-        documentSelector:
-          path: metadata.name
-          value: "RELEASE-NAME-loki-headless"
-      - equal:
-          path: metadata.labels["defaults.service.labels.merge/allLevels"]
-          value: "2"
-        template: monolithic/service.yaml
-        documentSelector:
-          path: metadata.name
-          value: "RELEASE-NAME-loki-headless"
-      - equal:
-          path: metadata.labels["component.serviceLabels.inherit"]
-          value: "true"
-        template: monolithic/service.yaml
-        documentSelector:
-          path: metadata.name
-          value: "RELEASE-NAME-loki-headless"
-      - equal:
-          path: metadata.labels["component.serviceLabels.merge"]
-          value: "false"
-        template: monolithic/service.yaml
-        documentSelector:
-          path: metadata.name
-          value: "RELEASE-NAME-loki-headless"
-      - equal:
-          path: metadata.labels["service.labels.inherit"]
-          value: "true"
+      - notExists:
+          path: metadata.labels["component.service_label.inherit"]
         template: monolithic/service.yaml
         documentSelector:
           path: metadata.name
