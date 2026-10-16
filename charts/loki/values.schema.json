@@ -404,6 +404,25 @@
                                 }
                             }
                         },
+                        "headlessService": {
+                            "type": "object",
+                            "properties": {
+                                "annotations": {
+                                    "description": "Additional annotations for headless Distributed compactor Service",
+                                    "type": "object",
+                                    "additionalProperties": {
+                                        "type": "string"
+                                    }
+                                },
+                                "labels": {
+                                    "description": "Additional labels for headless Distributed compactor Service",
+                                    "type": "object",
+                                    "additionalProperties": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        },
                         "ipFamilies": {
                             "description": "ipFamilies for backend Service Ref: https://kubernetes.io/docs/concepts/services-networking/dual-stack/#services",
                             "type": "array"
@@ -3552,6 +3571,25 @@
                                 "grpc": {
                                     "description": "Set the optional grpc service protocol. Ex: \"grpc\", \"http2\" or \"https\"",
                                     "type": "string"
+                                }
+                            }
+                        },
+                        "headlessService": {
+                            "type": "object",
+                            "properties": {
+                                "annotations": {
+                                    "description": "Additional annotations for headless Distributed compactor Service",
+                                    "type": "object",
+                                    "additionalProperties": {
+                                        "type": "string"
+                                    }
+                                },
+                                "labels": {
+                                    "description": "Additional labels for headless Distributed compactor Service",
+                                    "type": "object",
+                                    "additionalProperties": {
+                                        "type": "string"
+                                    }
                                 }
                             }
                         },
@@ -8215,6 +8253,25 @@
                                 }
                             }
                         },
+                        "headlessService": {
+                            "type": "object",
+                            "properties": {
+                                "annotations": {
+                                    "description": "Additional annotations for headless Distributed compactor Service",
+                                    "type": "object",
+                                    "additionalProperties": {
+                                        "type": "string"
+                                    }
+                                },
+                                "labels": {
+                                    "description": "Additional labels for headless Distributed compactor Service",
+                                    "type": "object",
+                                    "additionalProperties": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        },
                         "ipFamilies": {
                             "description": "ipFamilies for querier Service Ref: https://kubernetes.io/docs/concepts/services-networking/dual-stack/#services",
                             "type": "array"
@@ -8707,6 +8764,25 @@
                                 "grpc": {
                                     "description": "Set the optional grpc service protocol. Ex: \"grpc\", \"http2\" or \"https\"",
                                     "type": "string"
+                                }
+                            }
+                        },
+                        "headlessService": {
+                            "type": "object",
+                            "properties": {
+                                "annotations": {
+                                    "description": "Additional annotations for headless Distributed compactor Service",
+                                    "type": "object",
+                                    "additionalProperties": {
+                                        "type": "string"
+                                    }
+                                },
+                                "labels": {
+                                    "description": "Additional labels for headless Distributed compactor Service",
+                                    "type": "object",
+                                    "additionalProperties": {
+                                        "type": "string"
+                                    }
                                 }
                             }
                         },

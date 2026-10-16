@@ -2794,6 +2794,13 @@ backend:
     appProtocol:
     # -- Set the optional grpc service protocol. Ex: "grpc", "http2" or "https"
       grpc: ""
+    headlessService:
+      # @schema additionalProperties:{"type":"string"}
+      # -- Additional annotations for headless Distributed compactor Service
+      annotations: {}
+      # @schema additionalProperties:{"type":"string"}
+      # -- Additional labels for headless Distributed compactor Service
+      labels: {}
   # -- Additional CLI args for the backend
   extraArgs: []
   # -- Environment variables to add to the backend pods
@@ -3516,6 +3523,13 @@ distributor:
     appProtocol:
     # -- Set the optional grpc service protocol. Ex: "grpc", "http2" or "https"
       grpc: ""
+    headlessService:
+      # @schema additionalProperties:{"type":"string"}
+      # -- Additional annotations for headless Distributed compactor Service
+      annotations: {}
+      # @schema additionalProperties:{"type":"string"}
+      # -- Additional labels for headless Distributed compactor Service
+      labels: {}
   # -- Additional CLI args for the distributor
   extraArgs: []
   # -- Environment variables to add to the distributor pods
@@ -3783,6 +3797,13 @@ querier:
     appProtocol:
     # -- Set the optional grpc service protocol. Ex: "grpc", "http2" or "https"
       grpc: ""
+    headlessService:
+      # @schema additionalProperties:{"type":"string"}
+      # -- Additional annotations for headless Distributed compactor Service
+      annotations: {}
+      # @schema additionalProperties:{"type":"string"}
+      # -- Additional labels for headless Distributed compactor Service
+      labels: {}
   # -- Additional CLI args for the querier
   extraArgs: []
   # -- Environment variables to add to the querier pods
@@ -4050,6 +4071,13 @@ queryFrontend:
     appProtocol:
     # -- Set the optional grpc service protocol. Ex: "grpc", "http2" or "https"
       grpc: ""
+    headlessService:
+      # @schema additionalProperties:{"type":"string"}
+      # -- Additional annotations for headless Distributed compactor Service
+      annotations: {}
+      # @schema additionalProperties:{"type":"string"}
+      # -- Additional labels for headless Distributed compactor Service
+      labels: {}
   # -- Additional CLI args for the query-frontend
   extraArgs: []
   # -- Environment variables to add to the query-frontend pods
