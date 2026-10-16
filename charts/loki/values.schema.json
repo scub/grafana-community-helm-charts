@@ -10423,6 +10423,25 @@
                                 }
                             }
                         },
+                        "headlessService": {
+                            "type": "object",
+                            "properties": {
+                                "annotations": {
+                                    "description": "Additional annotations for headless Distributed compactor Service",
+                                    "type": "object",
+                                    "additionalProperties": {
+                                        "type": "string"
+                                    }
+                                },
+                                "labels": {
+                                    "description": "Additional labels for headless Distributed compactor Service",
+                                    "type": "object",
+                                    "additionalProperties": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        },
                         "ipFamilies": {
                             "description": "ipFamilies for ruler Service Ref: https://kubernetes.io/docs/concepts/services-networking/dual-stack/#services",
                             "type": "array"

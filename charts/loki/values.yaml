@@ -5880,6 +5880,13 @@ ruler:
     appProtocol:
     # -- Set the optional grpc service protocol. Ex: "grpc", "http2" or "https"
       grpc: ""
+    headlessService:
+      # @schema additionalProperties:{"type":"string"}
+      # -- Additional annotations for headless Distributed compactor Service
+      annotations: {}
+      # @schema additionalProperties:{"type":"string"}
+      # -- Additional labels for headless Distributed compactor Service
+      labels: {}
   # -- Additional CLI args for the ruler
   extraArgs: []
   # -- Environment variables to add to the ruler pods
