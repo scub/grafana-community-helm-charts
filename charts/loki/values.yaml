@@ -600,6 +600,13 @@ loki:
     # -- ipFamilies for all services
     # Ref: https://kubernetes.io/docs/concepts/services-networking/dual-stack/#services
     ipFamilies: []
+    headlessService:
+      # @schema additionalProperties:{"type":"string"}
+      # -- Additional annotations for headless Distributed compactor Service
+      annotations: {}
+      # @schema additionalProperties:{"type":"string"}
+      # -- Additional labels for headless Distributed compactor Service
+      labels: {}
   # @schema skipProperties:true;additionalProperties:true
   # -- Limits config
   limits_config:
